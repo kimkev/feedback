@@ -5,6 +5,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import Footer from './Footer'
+// hostname
+const localHostName = "http://localhost:4000"
+const hostName = "http://3.138.195.122:4000"
 
 const Feedback = () => {
 
@@ -33,7 +36,7 @@ const Feedback = () => {
             rating: rating
         }
 
-        axios.post('http://localhost:4000/app/feedback', feedback)
+        axios.post(`${hostName}/app/feedback`, feedback)
             .then(response => {
                 window.location.href = './feedbackList'
                 console.log(response.data)

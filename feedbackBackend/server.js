@@ -9,12 +9,12 @@ dotenv.config()
 
 const url = process.env.DATABASE_ACCESS
 const mongodbOptions = {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  }
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}
 
 mongoose.connect(url, mongodbOptions,
-    () => console.log("Database Connected"))
+  () => console.log("Database Connected"))
 
 //body parser
 app.use(express.json())
@@ -22,4 +22,5 @@ app.use(express.json())
 app.use(cors())
 // use routes last
 app.use('/app', routesUrls)
-app.listen(4000, () => console.log("Server is up at localhost:4000/app"))
+var listener = app.listen(4000, () =>
+  console.log(`Server is up at ${process.env.HOSTNAME} at ` + listener.address().port))

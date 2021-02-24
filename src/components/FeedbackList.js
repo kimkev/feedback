@@ -7,6 +7,10 @@ import Footer from './Footer'
 //font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
+// hostname
+const localHostName = "http://localhost:4000"
+const hostName = "http://3.138.195.122:4000"
+
 
 const FeedbackList = () => {
 
@@ -20,7 +24,7 @@ const FeedbackList = () => {
 
     // fetch feedbacks
     const getAllFeedback = async () => {
-        await axios.get('http://localhost:4000/app/feedback')
+        await axios.get(`${hostName}/app/feedback`)
             .then((response) => {
                 const data = response.data
                 setFeedBackList({ users: data })
