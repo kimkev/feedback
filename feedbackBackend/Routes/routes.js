@@ -6,10 +6,11 @@ const bcrypt = require('bcrypt')
 
 
 // default submit page
-router.post('/', async (request, response) => {
+router.post('/feedback', async (request, response) => {
     const feedback = new feedbackCopy({
         name:request.body.name,
-        message:request.body.message
+        message:request.body.message,
+        rating:request.body.rating
     })
     feedback.save()
     .then(data => {

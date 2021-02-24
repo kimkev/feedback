@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
+//font awesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
+import Footer from './Footer'
 
 const Feedback = () => {
 
     const [name, setName] = useState("");
     const [message, setMessage] = useState("");
+    const [rating, setRating] = useState(10)
 
     const changeName = (event) => {
         setName(event.target.value)
@@ -16,50 +20,75 @@ const Feedback = () => {
         setMessage(event.target.value)
     }
 
-    //submit using axios
-    const onSubmit = (event) => {
-        event.preventDefault()
-
-        const feedback = {
-            name: name,
-            message: message
-        }
-
-        axios.post('http://localhost:4000/app', feedback)
-            .then(response => console.log(response.data))
-
-        // window.location = '/'   setting the next page
-        setName("")
-        setMessage("")
+    const changeRating = (event) => {
+        setRating(event.target.value)
     }
 
+    //submit using axios -> redirects to FeedbackList
+    const onSubmit = () => {
+        console.log("on submit")
+        const feedback = {
+            name: name,
+            message: message,
+            rating: rating
+        }
+
+        axios.post('http://localhost:4000/app/feedback', feedback)
+            .then(response => {
+                window.location.href = './feedbackList'
+                console.log(response.data)
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
 
     return (
         <>
-            <div className='container'>
-                <div className='form-div'>
-                    <form onSubmit={onSubmit}>
-                        <input type='text'
-                            placeholder='name'
-                            onChange={changeName}
-                            value={name}
-                            className='form-control form-group'
-                        />
-                        <input type='text'
-                            placeholder='message'
-                            onChange={changeMessage}
-                            value={message}
-                            className='form-control form-group'
-                        />
+            <div className="bg-info">
+                <h1 className='d-flex justify-content-center'>Feedback Form</h1>
+                <div className="row">
 
-                        <input type='submit' className='btn btn-danger btn-block' value='submit' />
-
-                    </form>
+                    <div className="col-md-8 offset-md-2 bg-warning vh-100">
+                        <form onSubmit={onSubmit}>
+                            <div className="form-group">
+                                <label>Name</label>
+                                <input type="text"
+                                    className="form-control"
+                                    id="Name"
+                                    placeholder="name"
+                                    onChange={changeName}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>Message</label>
+                                <textarea className="form-control"
+                                    id="Message"
+                                    rows="3"
+                                    placeholder="Type your message here"
+                                    onChange={changeMessage}
+                                />
+                            </div>
+                            <div className="form-group container-fluid ">
+                                <label className="form-label row font-weight-bold">Rating: {rating}<FontAwesomeIcon icon={faStar} /></label>
+                                <input type="range"
+                                    id="ratingRange"
+                                    className="form-range row"
+                                    min="1"
+                                    max="10"
+                                    step="1"
+                                    onChange={changeRating}
+                                />
+                            </div>
+                            <div className="form-group d-flex justify-content-center">
+                                <input type='submit' className='btn btn-primary  bg-danger' value='Submit' />
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <Link to="/feedbackList">FeedbackList</Link>
-            <br />
-            <Link to="/">Back to Home</Link>
+
+            <Footer />
         </>
 
     );

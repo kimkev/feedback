@@ -4,6 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Moment from 'react-moment';
 import 'moment-timezone';
 import Footer from './Footer'
+//font awesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 const FeedbackList = () => {
 
@@ -32,15 +35,20 @@ const FeedbackList = () => {
         if (feedBackList.users) {
             if (feedBackList.users.length > 0) {
                 return (
-                    <ul class="list-unstyled card-columns">
+                    <div className="card-columns">
                         {feedBackList.users.map((feedback, index) => (
-                            <li key={index} >
-                                <h3>{feedback.name}</h3>
-                                <p>{feedback.message}</p>
-                                <h5><Moment date={feedback.date} /></h5>
-                            </li>
+                            <div key={index} className="bg-secondary">
+                                <div className="card">
+                                    <h3 className="card-title text-center">{feedback.name}</h3>
+                                    <h5><Moment date={feedback.date} /></h5>
+                                    <h4 className="text-center">Rating: {feedback.rating} <FontAwesomeIcon icon={faStar} /></h4>
+                                    <div className="card-body">
+                                        <p className="card-text">{feedback.message}</p>
+                                    </div>
+                                </div>
+                            </div>
                         ))}
-                    </ul>
+                    </div>
                 )
             }
         }
@@ -49,15 +57,16 @@ const FeedbackList = () => {
 
     return (
         <>
-            <div className='container h-100'>
-                <div className="row h-100 justify-content-center align-items-center">
-                    <h1 className="align-items-center">Feedback List Page</h1>
+            <div className="bg-info container-fluid vh-100">
+                <div className=''>
+                    <div className="row h-100 justify-content-center align-items-center">
+                        <h1 className="align-items-center">Feedback List Page</h1>
+                    </div>
+                </div>
+                <div className="container">
+                    <div>{displayAllFeedback(feedBackList)}</div>
                 </div>
             </div>
-            <div class="container">
-                <div>{displayAllFeedback(feedBackList)}</div>
-            </div>
-
             <Footer />
         </>
     );

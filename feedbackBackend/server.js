@@ -22,4 +22,4 @@ app.use(express.json())
 app.use(cors())
 // use routes last
 app.use('/app', routesUrls)
-app.listen(4000, () => console.log("Server is up"))
+app.listen(4000, () => console.log("Server is up at localhost:4000/app"))
