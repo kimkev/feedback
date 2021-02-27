@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 // hostname
 const localHostName = "http://localhost:4000"
-const hostName = "http://3.138.195.122:4000"
+const hostName = "http://18.220.198.9:4000"
 
 
 const FeedbackList = () => {

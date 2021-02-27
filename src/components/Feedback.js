@@ -7,7 +7,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 import Footer from './Footer'
 // hostname
 const localHostName = "http://localhost:4000"
-const hostName = "http://3.138.195.122:4000"
+const hostName = "http://18.220.198.9:4000"
 
 const Feedback = () => {
 

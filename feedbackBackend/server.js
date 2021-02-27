@@ -21,6 +21,6 @@ app.use(express.json())
 // cors after parser
 app.use(cors())
 // use routes last
-app.use('/app', routesUrls)
+app.use('/app', routesUrls) 
 var listener = app.listen(4000, () =>
   console.log(`Server is up at ${process.env.HOSTNAME} at ` + listener.address().port))
