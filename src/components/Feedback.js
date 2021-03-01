@@ -28,8 +28,8 @@ const Feedback = () => {
     }
 
     //submit using axios -> redirects to FeedbackList
-    const onSubmit = () => {
-        console.log("on submit")
+    const onSubmit = (event) => {
+        event.preventDefault()
         const feedback = {
             name: name,
             message: message,

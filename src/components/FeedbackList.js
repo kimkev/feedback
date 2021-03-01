@@ -59,6 +59,11 @@ const FeedbackList = () => {
         return null
     }
 
+    //back button
+    const goBack = () => {
+        window.history.back()
+    }
+
     return (
         <>
             <div className="bg-info container-fluid vh-100">
@@ -70,7 +75,11 @@ const FeedbackList = () => {
                 <div className="container">
                     <div>{displayAllFeedback(feedBackList)}</div>
                 </div>
+
+                <button onClick={goBack} type="button" class="btn btn-primary">Back</button>
+
             </div>
+            
             <Footer />
         </>
     );

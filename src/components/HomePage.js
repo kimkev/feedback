@@ -29,7 +29,7 @@ const HomePage = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-3">
+                    {/* <div className="col-sm-3">
                         <div className="card" styles="width: 18rem;">
                             <img className="card-img-top img-thumbnail img-responsive" src={image2} alt="..." />
                             <div className="card-body">
@@ -38,7 +38,7 @@ const HomePage = () => {
                                 <Link to="#">Check it out</Link>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <Footer />
             </div>
