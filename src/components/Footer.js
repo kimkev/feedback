@@ -24,7 +24,7 @@ const Footer = () => {
                         <h6>Project Categories</h6>
                         <ul class="footer-links">
                             <li><a href="https://kimkev.github.io/assets/html/ReactPage.html">Basic React</a></li>
-                            <li><a href="#">Feedback</a></li>
+                            <li><a href="http://18.220.198.9/">MERN Feedback</a></li>
                             <li><a href="https://kimkev.itch.io/">Unity Games</a></li>
                         </ul>
                     </div>
@@ -52,7 +52,7 @@ const Footer = () => {
                             <li><a className="facebook" href="#"><FontAwesomeIcon icon={faFacebookF} /></a></li>
                             <li><a className="twitter" href="#"><FontAwesomeIcon icon={faTwitter} /></a></li>
                             <li><a className="dribbble" href="#"><FontAwesomeIcon icon={faDribbble} /></a></li>
-                            <li><a className="linkedin" href="#"><FontAwesomeIcon icon={faLinkedin} /></a></li>
+                            <li><a className="linkedin" href="https://www.linkedin.com/in/kimkevi/"><FontAwesomeIcon icon={faLinkedin} /></a></li>
                         </ul>
                     </div>
                 </div>
